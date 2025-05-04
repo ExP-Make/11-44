@@ -1,24 +1,27 @@
 using UnityEngine;
 
-public class ItemInteractWorldUI : MonoBehaviour
+public class ItemInteraction : MonoBehaviour, IInteractable
 {
-    public GameObject uiCanvas;   // World Space UI Canvas
-
     private bool isPlayerInRange = false;
-
-    void Start()
-    {
-        uiCanvas.SetActive(false); // √≥¿Ωø£ ≤®µŒ±‚
-    }
 
     void Update()
     {
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("F ≈∞ ¥≠∑Øº≠ æ∆¿Ã≈€ »πµÊ!");
-            uiCanvas.SetActive(false);
-            Destroy(gameObject); // æ∆¿Ã≈€ ªÁ∂Û¡¸
+            OnInteract();
         }
+    }
+
+    public void OnInteract()
+    {
+        Debug.Log("æ∆¿Ã≈€ »πµÊ!");
+        InteractionUIManager.Instance.ShowText(false);
+        Destroy(gameObject);
+    }
+
+    public void ShowUI(bool show)
+    {
+        InteractionUIManager.Instance.ShowText(show);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -26,7 +29,7 @@ public class ItemInteractWorldUI : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            uiCanvas.SetActive(true);
+            ShowUI(true);
         }
     }
 
@@ -35,7 +38,7 @@ public class ItemInteractWorldUI : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = false;
-            uiCanvas.SetActive(false);
+            ShowUI(false);
         }
     }
 }
