@@ -807,11 +807,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: bebdfe02-a5da-4318-905e-6af14b4c5970
+  cloudProjectId: ae67fed9-d99c-4992-867e-4fe4901a3efb
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 11_44 2025-04-30_21-51-32
-  organizationId: mcmoondoldol
+  projectName: 11
+  organizationId: shkh071216
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
