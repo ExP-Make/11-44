@@ -26,6 +26,7 @@ public class Inventory : MonoBehaviour {
             InventoryItem newItem = new InventoryItem(itemData, quantity);
             inventoryItems.Add(newItem);
         }
+        Debug.Log("현재 인벤토리 아이템 수: " + inventoryItems.Count);
     }
 
     public void RemoveItem(ItemData itemData, int quantity = 1)
