@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80eeb46492ca7f84999a6fba04083ebb, type: 3}
-  m_Name: Test
+  m_Name: Test 3
   m_EditorClassIdentifier: 
-  id: 0
+  id: 3
   itemName: Test
-  description: "\uD14C\uC2A4\uD2B8\uC6A9 \uC544\uC774\uD15C."
-  icon: {fileID: -8712778243190278716, guid: 8d339072a21b6f24e92a780f6cdc683c, type: 3}
+  description: "\uD14C\uC2A4\uD2B8\uC6A9 \uC544\uC774\uD15C3"
+  icon:
+  - {fileID: -8712778243190278716, guid: 8d339072a21b6f24e92a780f6cdc683c, type: 3}
+  - {fileID: -8977702842160166629, guid: 0ccfe370d2d701747b6a72a4a313d0fc, type: 3}
+  - {fileID: -8977702842160166629, guid: 0ccfe370d2d701747b6a72a4a313d0fc, type: 3}
   itemType: 1
   attackPower: 1
   defensePower: 0

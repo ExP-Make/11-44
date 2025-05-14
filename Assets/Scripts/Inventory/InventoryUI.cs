@@ -38,17 +38,17 @@ public class InventoryUI : MonoBehaviour
             Image iconImage = slot.transform.Find("Icon").GetComponent<Image>();
             TextMeshProUGUI quantityText = slot.transform.Find("Quantity").GetComponent<TextMeshProUGUI>();
 
-            iconImage.sprite = itemData.icon;
+            iconImage.sprite = itemData.icon[0];
 
             var invItem = playerInventory.inventoryItems.Find(i => i.itemData.id == itemData.id);
             if (invItem != null)
             {
-                iconImage.color = new Color(1f, 1f, 1f, 1f); // 선명
+                iconImage.sprite = itemData.icon[0];
                 quantityText.text = invItem.quantity.ToString() + "개 보유 중";
             }
             else
             {
-                iconImage.color = new Color(1f, 1f, 1f, 0.3f); // 흐릿하게
+                iconImage.sprite = itemData.icon[1];
                 quantityText.text = "미보유";
             }
         }

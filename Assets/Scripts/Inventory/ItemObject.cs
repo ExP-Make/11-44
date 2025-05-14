@@ -25,7 +25,7 @@ public class ItemObject : MonoBehaviour
 
         if (spriteRenderer != null)
         {
-            spriteRenderer.sprite = itemData.icon;
+            spriteRenderer.sprite = itemData.icon[0];
             defaultMaterial = spriteRenderer.material;
         }
     }
