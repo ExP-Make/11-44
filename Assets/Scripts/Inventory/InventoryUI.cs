@@ -11,6 +11,7 @@ public class InventoryUI : MonoBehaviour
 
     public Inventory playerInventory; // 참조 필요
     public ItemDatabase itemDatabase;
+    public Material silhouetteMaterial; // 실루엣 머티리얼
 
     private Dictionary<int, GameObject> itemSlots = new Dictionary<int, GameObject>();
     void Update()
@@ -36,7 +37,8 @@ public class InventoryUI : MonoBehaviour
             Debug.Log("Item ID: " + itemData.id + ", Name: " + itemData.itemName);
             GameObject slot = Instantiate(itemSlotPrefab, itemGridParent);
             Image iconImage = slot.transform.Find("Icon").GetComponent<Image>();
-            TextMeshProUGUI quantityText = slot.transform.Find("Quantity").GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI nameText = slot.transform.Find("Name").GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI descriptionText = slot.transform.Find("Description").GetComponent<TextMeshProUGUI>();
 
             iconImage.sprite = itemData.icon[0];
 
@@ -44,12 +46,14 @@ public class InventoryUI : MonoBehaviour
             if (invItem != null)
             {
                 iconImage.sprite = itemData.icon[0];
-                quantityText.text = invItem.quantity.ToString() + "개 보유 중";
+                nameText.text = invItem.itemData.itemName;
+                descriptionText.text = invItem.itemData.description;
             }
             else
             {
-                iconImage.sprite = itemData.icon[1];
-                quantityText.text = "미보유";
+                iconImage.material = silhouetteMaterial;
+                nameText.text = "";
+                descriptionText.text = "";
             }
         }
     }

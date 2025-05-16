@@ -17,8 +17,7 @@ MonoBehaviour:
   description: "\uD14C\uC2A4\uD2B8\uC6A9 \uC544\uC774\uD15C1"
   icon:
   - {fileID: -8712778243190278716, guid: 8d339072a21b6f24e92a780f6cdc683c, type: 3}
-  - {fileID: -8977702842160166629, guid: 0ccfe370d2d701747b6a72a4a313d0fc, type: 3}
-  - {fileID: -8977702842160166629, guid: 0ccfe370d2d701747b6a72a4a313d0fc, type: 3}
+  - {fileID: -8712778243190278716, guid: 8d339072a21b6f24e92a780f6cdc683c, type: 3}
   itemType: 1
   attackPower: 1
   defensePower: 0
