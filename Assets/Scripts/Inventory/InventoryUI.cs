@@ -5,13 +5,20 @@ using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
-    public GameObject inventoryPanel;
-    public Transform itemGridParent;
-    public GameObject itemSlotPrefab;
+    [SerializeField] GameObject inventoryPanel;
+    [SerializeField] Transform itemGridParent;
 
-    public Inventory playerInventory; // 참조 필요
-    public ItemDatabase itemDatabase;
-    public Material silhouetteMaterial; // 실루엣 머티리얼
+    [SerializeField] Inventory playerInventory; // 참조 필요
+    [SerializeField] ItemDatabase itemDatabase;
+
+    // itemslot
+    [SerializeField] GameObject itemSlotPrefab;
+    [SerializeField] Material silhouetteMaterial; // 실루엣 머티리얼
+
+    // DetailPanel
+    [SerializeField] Image detailIcon;
+    [SerializeField] TextMeshProUGUI detailName;
+    [SerializeField] TextMeshProUGUI detailDescription;
 
     private Dictionary<int, GameObject> itemSlots = new Dictionary<int, GameObject>();
     void Update()
@@ -27,34 +34,56 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 인벤토리 화면 새로고침. 인벤토리 화면을 켤 때마다 호출됨
+    /// </summary>
     void RefreshUI()
     {
+        // 새로고침을 위한 리셋
         foreach (Transform child in itemGridParent)
             Destroy(child.gameObject);
+        ResetDetailPanel();
 
+        // 현재 아이템 상황에 맞춰서 업데이트
         foreach (var itemData in itemDatabase.items)
         {
             Debug.Log("Item ID: " + itemData.id + ", Name: " + itemData.itemName);
             GameObject slot = Instantiate(itemSlotPrefab, itemGridParent);
             Image iconImage = slot.transform.Find("Icon").GetComponent<Image>();
-            TextMeshProUGUI nameText = slot.transform.Find("Name").GetComponent<TextMeshProUGUI>();
-            TextMeshProUGUI descriptionText = slot.transform.Find("Description").GetComponent<TextMeshProUGUI>();
-
-            iconImage.sprite = itemData.icon[0];
 
             var invItem = playerInventory.inventoryItems.Find(i => i.itemData.id == itemData.id);
-            if (invItem != null)
-            {
-                iconImage.sprite = itemData.icon[0];
-                nameText.text = invItem.itemData.itemName;
-                descriptionText.text = invItem.itemData.description;
-            }
-            else
+            iconImage.sprite = itemData.icon[0];
+            if (invItem == null)
             {
                 iconImage.material = silhouetteMaterial;
-                nameText.text = "";
-                descriptionText.text = "";
             }
+
+            Button button = slot.GetComponent<Button>();
+            button.onClick.AddListener(() => UpdateDetailPanel(itemData, invItem != null));
         }
+    }
+
+    void ResetDetailPanel()
+    {
+        detailIcon.sprite = null;
+        detailIcon.material = null;
+        ChangeAlpha(detailIcon, 0f);
+        detailName.text = "";
+        detailDescription.text = "";
+    }
+    void UpdateDetailPanel(ItemData itemData, bool isObtained)
+    {
+        detailIcon.sprite = itemData.icon[0];
+        detailIcon.material = isObtained ? null : silhouetteMaterial;
+        ChangeAlpha(detailIcon, 1f);
+        detailName.text = isObtained ? itemData.itemName : "???";
+        detailDescription.text = isObtained ? itemData.description : "???";
+    }
+
+    void ChangeAlpha(Image image, float alpha)
+    {
+        Color tempColor = image.color;
+        tempColor.a = alpha;
+        image.color = tempColor;
     }
 }
