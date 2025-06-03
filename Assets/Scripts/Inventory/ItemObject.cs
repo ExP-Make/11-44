@@ -25,11 +25,16 @@ public class ItemObject : MonoBehaviour
 
         if (spriteRenderer != null)
         {
-            spriteRenderer.sprite = itemData.icon;
+            spriteRenderer.sprite = itemData.icon[0];
             defaultMaterial = spriteRenderer.material;
         }
     }
 
+    /// <summary>
+    /// 플레이어가 아이템에 접촉 시 외곽선 표시
+    /// TODO: 이후 Material이 아닌 별도 이미지로 바꾸도록 변경 필요
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -38,6 +43,11 @@ public class ItemObject : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 플레이어가 접촉 중,  F키 입력 시 아이템 획득 처리. 
+    /// TODO: 이후 모바일 버튼 입력으로 대체 필요
+    /// </summary>
+    /// <param name="other">접촉 오브젝트 (플레이어)</param>
     private void OnTriggerStay2D(Collider2D other)
     {
         Inventory inventory = other.GetComponent<Inventory>();
@@ -49,6 +59,10 @@ public class ItemObject : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 아이템에서 떨어지면 외곽선 해제
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
