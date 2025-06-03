@@ -14,6 +14,11 @@ public class Inventory : MonoBehaviour {
         inventoryItems = new List<InventoryItem>();
     }
 
+    /// <summary>
+    /// 인벤토리에 아이템 추가
+    /// </summary>
+    /// <param name="itemData">아이템</param>
+    /// <param name="quantity">수량 (필요없나?)</param>
     public void AddItem(ItemData itemData, int quantity = 1)
     {
         InventoryItem existingItem = inventoryItems.Find(item => item.itemData.id == itemData.id);
