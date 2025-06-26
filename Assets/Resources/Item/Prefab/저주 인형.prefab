@@ -150,3 +150,4 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: 4a980118c21bf0f458b99fe09075afe1, type: 2}
   quantity: 1
   outlineMaterial: {fileID: 2100000, guid: 1121a6410572dfb49811d3fc9550e16a, type: 2}
+  gameManager: {fileID: 8557075517775152579, guid: 2f4a3bd3708a022418cf87b0f0565529, type: 3}

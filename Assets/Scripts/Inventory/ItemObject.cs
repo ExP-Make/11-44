@@ -10,13 +10,14 @@ public class ItemObject : MonoBehaviour
     public int quantity = 1; // 아이템 수량
     public Material outlineMaterial; // 하이라이트용 머티리얼
     private Material defaultMaterial; // 원래 머티리얼
-    private SpriteRenderer spriteRenderer; 
-
+    private SpriteRenderer spriteRenderer;
+    private bool isPlayerinRange = false;
+    private Inventory currentInventory;
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         Debug.Log(spriteRenderer);
-         
+
         // Collider2D 컴포넌트가 없으면 추가
         if (GetComponent<Collider2D>() == null)
         {
@@ -30,6 +31,26 @@ public class ItemObject : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (!isPlayerinRange || itemData == null || currentInventory == null) return;
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (!GameManager.Instance.isDialogOpen)
+            {
+                GameManager.Instance.ShowDialog($"{itemData.itemName}을 얻었다.");
+                Debug.Log("test");
+            }
+            else if (GameManager.Instance.isDialogOpen)
+            {
+                currentInventory.AddItem(itemData, quantity);
+                Debug.Log($"아이템 획득: {itemData.itemName} x{quantity}");
+                GameManager.Instance.HideDialog();
+                Destroy(gameObject);
+            }
+        }
+    }
+
     /// <summary>
     /// 플레이어가 아이템에 접촉 시 외곽선 표시
     /// TODO: 이후 Material이 아닌 별도 이미지로 바꾸도록 변경 필요
@@ -39,23 +60,11 @@ public class ItemObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Inventory inventory = other.GetComponent<Inventory>();
+            if (inventory == null) return;
+            isPlayerinRange = true;
+            currentInventory = inventory; 
             spriteRenderer.material = outlineMaterial; // 외곽선 표시
-        }
-    }
-
-    /// <summary>
-    /// 플레이어가 접촉 중,  F키 입력 시 아이템 획득 처리. 
-    /// TODO: 이후 모바일 버튼 입력으로 대체 필요
-    /// </summary>
-    /// <param name="other">접촉 오브젝트 (플레이어)</param>
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        Inventory inventory = other.GetComponent<Inventory>();
-        if (other.CompareTag("Player") && inventory != null && itemData != null && Input.GetKeyDown(KeyCode.F))
-        {
-            inventory.AddItem(itemData, quantity);
-            Debug.Log($"아이템 획득: {itemData.itemName} x{quantity}");
-            Destroy(gameObject); // 아이템을 줍고 나면 오브젝트 삭제
         }
     }
 
@@ -65,9 +74,10 @@ public class ItemObject : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            spriteRenderer.material = defaultMaterial; // 원래 머티리얼로 복원
-        }
+        if (!other.CompareTag("Player")) return;
+        
+        isPlayerinRange = false;
+        currentInventory = null; // 현재 인벤토리 초기화
+        spriteRenderer.material = defaultMaterial; // 원래 머티리얼로 복원
     }
 }

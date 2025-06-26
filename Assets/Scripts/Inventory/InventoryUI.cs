@@ -23,7 +23,7 @@ public class InventoryUI : MonoBehaviour
     private Dictionary<int, GameObject> itemSlots = new Dictionary<int, GameObject>();
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (!GameManager.Instance.isDialogOpen && Input.GetKeyDown(KeyCode.E))
         {
             bool isActive = inventoryPanel.activeSelf;
             Debug.Log("Inventory UI Toggle: " + (isActive ? "Closing" : "Opening"));

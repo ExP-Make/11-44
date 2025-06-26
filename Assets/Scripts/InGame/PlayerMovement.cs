@@ -16,9 +16,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Move();
-        Jump();
-        CheckGround();
+        if (!GameManager.Instance.isDialogOpen)
+        {
+            Move();
+            Jump();
+            CheckGround();
+        }
     }
 
     private void Move()

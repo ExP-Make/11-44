@@ -14,9 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   itemName: TestItem_0
-  description: "(\uC544\uC774\uD15C \uAE30\uB2A5 \uD14C\uC2A4\uD2B8)\n\uD558\uC580
-    \uBA54\uBAA8\uC9C0\uB2E4.\n'\uC624\uB298\uC740 \uB9E4\uC810\uC5D0\uC11C \uBD10.'\n\uB77C\uACE0
-    \uC801\uD600 \uC788\uB2E4."
+  description: "\uC544\uC774\uD15C UI \uD14C\uC2A4\uD2B8\uC6A9 \uB354\uBBF8 \uC544\uC774\uD15C"
   icon:
   - {fileID: -8712778243190278716, guid: 8d339072a21b6f24e92a780f6cdc683c, type: 3}
   - {fileID: -8712778243190278716, guid: 8d339072a21b6f24e92a780f6cdc683c, type: 3}
