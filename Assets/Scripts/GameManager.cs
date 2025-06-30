@@ -28,13 +28,13 @@ public class GameManager : MonoBehaviour
         dialogText.text = message;
         dialogPanel.SetActive(true);
         isDialogOpen = true;
-        Debug.Log("Dialog shown: " + message + " " + isDialogOpen);
+        //Debug.Log("Dialog shown: " + message + " " + isDialogOpen);
     }
 
     public void HideDialog()
     {
         dialogPanel.SetActive(false);
         isDialogOpen = false;
-        Debug.Log("Dialog hidden" + isDialogOpen);
+        //Debug.Log("Dialog hidden" + isDialogOpen);
     }
 }

@@ -16,7 +16,7 @@ public class ItemObject : MonoBehaviour
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        Debug.Log(spriteRenderer);
+        //Debug.Log(spriteRenderer);
 
         // Collider2D 컴포넌트가 없으면 추가
         if (GetComponent<Collider2D>() == null)
@@ -39,12 +39,16 @@ public class ItemObject : MonoBehaviour
             if (!GameManager.Instance.isDialogOpen)
             {
                 GameManager.Instance.ShowDialog($"{itemData.itemName}을 얻었다.");
-                Debug.Log("test");
             }
             else if (GameManager.Instance.isDialogOpen)
             {
-                currentInventory.AddItem(itemData, quantity);
-                Debug.Log($"아이템 획득: {itemData.itemName} x{quantity}");
+                currentInventory.AddItem(itemData, quantity); // 아이템 획득 처리
+                // SaveData data = SaveSystem.LoadGame();
+                // if (!data.obtainedItemIds.Contains(itemData.id)) 
+                // {
+                //     data.obtainedItemIds.Add(itemData.id); // 아이템 획득 기록 추가
+                //     SaveSystem.SaveGame(data); // 저장
+                // }
                 GameManager.Instance.HideDialog();
                 Destroy(gameObject);
             }

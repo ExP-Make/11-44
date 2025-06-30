@@ -26,7 +26,7 @@ public class InventoryUI : MonoBehaviour
         if (!GameManager.Instance.isDialogOpen && Input.GetKeyDown(KeyCode.E))
         {
             bool isActive = inventoryPanel.activeSelf;
-            Debug.Log("Inventory UI Toggle: " + (isActive ? "Closing" : "Opening"));
+            //Debug.Log("Inventory UI Toggle: " + (isActive ? "Closing" : "Opening"));
             inventoryPanel.SetActive(!isActive);
 
             if (!isActive)
@@ -47,7 +47,7 @@ public class InventoryUI : MonoBehaviour
         // 현재 아이템 상황에 맞춰서 업데이트
         foreach (var itemData in itemDatabase.items)
         {
-            Debug.Log("Item ID: " + itemData.id + ", Name: " + itemData.itemName);
+            //Debug.Log("Item ID: " + itemData.id + ", Name: " + itemData.itemName);
             GameObject slot = Instantiate(itemSlotPrefab, itemGridParent);
             Image iconImage = slot.transform.Find("Icon").GetComponent<Image>();
 
