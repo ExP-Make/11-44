@@ -43,6 +43,7 @@ public class ItemObject : MonoBehaviour
             else if (GameManager.Instance.isDialogOpen)
             {
                 currentInventory.AddItem(itemData, quantity); // 아이템 획득 처리
+                // TODO: 이미 획득한 아이템 맵에서 숨기기를 위한 작업
                 // SaveData data = SaveSystem.LoadGame();
                 // if (!data.obtainedItemIds.Contains(itemData.id)) 
                 // {

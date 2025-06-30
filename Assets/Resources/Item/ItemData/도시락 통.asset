@@ -16,8 +16,8 @@ MonoBehaviour:
   itemName: "\uB3C4\uC2DC\uB77D \uD1B5"
   description: "\uB3C4\uC2DC\uB77D \uD1B5 \uC544\uC774\uD15C \uC124\uBA85"
   icon:
-  - {fileID: -4556137446812745221, guid: d5823b52fe3179a49ab85e42ab00ceaf, type: 3}
-  - {fileID: -4556137446812745221, guid: d5823b52fe3179a49ab85e42ab00ceaf, type: 3}
+  - {fileID: 4228585024402561301, guid: 70ac2fef1512f8a418aa44bf1f3b8b19, type: 3}
+  - {fileID: 4228585024402561301, guid: 70ac2fef1512f8a418aa44bf1f3b8b19, type: 3}
   itemType: 1
   attackPower: 1
   defensePower: 0
