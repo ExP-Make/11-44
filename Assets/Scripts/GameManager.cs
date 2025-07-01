@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI dialogText;
     public GameObject scanObject;
     public bool isDialogOpen = false;
+    public bool isInteractionEnabled = false; // 상호작용 버튼 활성화용
 
     private void Awake()
     {
