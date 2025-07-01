@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameSaveManager : MonoBehaviour
@@ -26,9 +27,9 @@ public class GameSaveManager : MonoBehaviour
 
         // 씬 이름
         data.currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-
         // 아이템
         Inventory inventory = PlayerManager.Instance.GetComponent<Inventory>();
+        data.obtainedItemIds = new List<int>(inventory.obtainedItemIds);
         if (inventory != null)
         {
             data.savedInventoryItems = inventory.ToSavedItemList();

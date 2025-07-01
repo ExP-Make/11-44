@@ -44,12 +44,7 @@ public class ItemObject : MonoBehaviour
             {
                 currentInventory.AddItem(itemData, quantity); // 아이템 획득 처리
                 // TODO: 이미 획득한 아이템 맵에서 숨기기를 위한 작업
-                // SaveData data = SaveSystem.LoadGame();
-                // if (!data.obtainedItemIds.Contains(itemData.id)) 
-                // {
-                //     data.obtainedItemIds.Add(itemData.id); // 아이템 획득 기록 추가
-                //     SaveSystem.SaveGame(data); // 저장
-                // }
+                currentInventory.RegisterObtainedItem(itemData.id); // 아이템 획득 현황 등록
                 GameManager.Instance.HideDialog();
                 Destroy(gameObject);
             }

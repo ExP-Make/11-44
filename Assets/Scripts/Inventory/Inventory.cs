@@ -9,7 +9,7 @@ using System.Linq;
 public class Inventory : MonoBehaviour {
     // public ItemDatabase itemDatabase; // 아이템 데이터베이스
     public List<InventoryItem> inventoryItems = new List<InventoryItem>(); // 인벤토리 아이템 리스트
-
+    public List<int> obtainedItemIds = new List<int>(); // 획득한 아이템 ID 리스트
     // private void Start()
     // {
     //     if (inventoryItems == null)
@@ -31,6 +31,20 @@ public class Inventory : MonoBehaviour {
             itemId = i.itemData.id,
             quantity = i.quantity
         }).ToList();
+    }
+
+    // 아이템 획득 현황 저장 (세이브&로드 시 아이템 표시 여부 결정용)
+    public void RegisterObtainedItem(int itemId)
+    {
+        if (!obtainedItemIds.Contains(itemId))
+        {
+            obtainedItemIds.Add(itemId);
+            Debug.Log($"획득한 아이템 등록: {itemId}");
+        }
+        else
+        {
+            Debug.Log($"이미 획득한 아이템: {itemId}");
+        }
     }
 
     // 저장된 데이터로부터 복원

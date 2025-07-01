@@ -29,6 +29,16 @@ public class PlayerManager : PersistentSingleton<PlayerManager>
             {
                 Debug.LogWarning("인벤토리 또는 아이템 데이터베이스가 null입니다");
             }
+            ItemObject[] allItemObjects = Object.FindObjectsByType<ItemObject>(FindObjectsSortMode.None);
+            foreach (var item in allItemObjects)
+            {
+                if (item.itemData == null) continue; // null 체크
+                if (cachedSaveData.obtainedItemIds.Contains(item.itemData.id))
+                {
+                    Destroy(item.gameObject); // 이미 획득한 아이템 제거
+                    Debug.Log($"획득한 아이템 제거: {item.itemData.itemName} (ID: {item.itemData.id})");
+                }
+            }
         }
     }
 }
