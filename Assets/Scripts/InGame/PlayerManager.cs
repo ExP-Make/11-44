@@ -8,7 +8,7 @@ public class PlayerManager : PersistentSingleton<PlayerManager>
     protected override void Awake()
     {
         base.Awake();
-        if (SaveSystem.SaveFileExists())
+        if (!GameManager.Instance.ignoreSaveData && SaveSystem.SaveFileExists())
         {
             cachedSaveData = SaveSystem.LoadGame();
             transform.position = new Vector3(cachedSaveData.playerPosX, cachedSaveData.playerPosY, 0f);
@@ -29,7 +29,7 @@ public class PlayerManager : PersistentSingleton<PlayerManager>
             {
                 Debug.LogWarning("인벤토리 또는 아이템 데이터베이스가 null입니다");
             }
-            ItemObject[] allItemObjects = Object.FindObjectsByType<ItemObject>(FindObjectsSortMode.None);
+            ItemObject[] allItemObjects = FindObjectsByType<ItemObject>(FindObjectsSortMode.None);
             foreach (var item in allItemObjects)
             {
                 if (item.itemData == null) continue; // null 체크

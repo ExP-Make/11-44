@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameSaveManager : MonoBehaviour
+public class GameSaveManager : PersistentSingleton<GameSaveManager>
 {
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))

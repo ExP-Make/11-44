@@ -38,14 +38,14 @@ public class ItemObject : MonoBehaviour
         {
             if (!GameManager.Instance.isDialogOpen)
             {
-                GameManager.Instance.ShowDialog($"{itemData.itemName}을 얻었다.");
+                DialogUI.Instance.ShowDialog($"{itemData.itemName}을 얻었다.");
             }
             else if (GameManager.Instance.isDialogOpen)
             {
                 currentInventory.AddItem(itemData, quantity); // 아이템 획득 처리
                 // TODO: 이미 획득한 아이템 맵에서 숨기기를 위한 작업
                 currentInventory.RegisterObtainedItem(itemData.id); // 아이템 획득 현황 등록
-                GameManager.Instance.HideDialog();
+                DialogUI.Instance.HideDialog();
                 Destroy(gameObject);
             }
         }

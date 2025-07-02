@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+using Unity.Cinemachine;
+using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
 public class CameraZoomAndClamp : MonoBehaviour
@@ -19,6 +20,23 @@ public class CameraZoomAndClamp : MonoBehaviour
             Debug.LogError("배경 SpriteRenderer가 지정되지 않았습니다.");
             return;
         }
+
+        var player = GameObject.FindWithTag("Player");
+        if (player == null)
+        {
+            Debug.LogError("Player를 찾을 수 없습니다.");
+            return;
+        }
+
+        var vcam = GetComponent<CinemachineCamera>();
+        if (vcam == null)
+        {
+            Debug.LogError("CinemachineCamera 컴포넌트가 없습니다.");
+            return;
+        }
+
+        vcam.Follow = player.transform;
+        vcam.LookAt = player.transform;
 
         SetupCameraZoomAndBounds();
     }

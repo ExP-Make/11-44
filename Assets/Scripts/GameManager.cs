@@ -2,40 +2,34 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : PersistentSingleton<GameManager>
 {
-    public static GameManager Instance { get; private set; }
-    public GameObject dialogPanel;
-    public TextMeshProUGUI dialogText;
     public GameObject scanObject;
     public bool isDialogOpen = false;
-    public bool isInteractionEnabled = false; // 상호작용 버튼 활성화용
+    public bool ignoreSaveData = false;
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    //Moved to DialogUI.cs
 
-    public void ShowDialog(string message)
-    {
-        dialogText.text = message;
-        dialogPanel.SetActive(true);
-        isDialogOpen = true;
-        //Debug.Log("Dialog shown: " + message + " " + isDialogOpen);
-    }
+    // public GameObject dialogPanel;
+    // public TextMeshProUGUI dialogText;
 
-    public void HideDialog()
+    protected override void Awake()
     {
-        dialogPanel.SetActive(false);
-        isDialogOpen = false;
-        //Debug.Log("Dialog hidden" + isDialogOpen);
+        base.Awake();
+        Debug.Log("GameManager Awake called");
     }
+    // public void ShowDialog(string message)
+    // {
+    //     dialogText.text = message;
+    //     dialogPanel.SetActive(true);
+    //     isDialogOpen = true;
+    //     //Debug.Log("Dialog shown: " + message + " " + isDialogOpen);
+    // }
+
+    // public void HideDialog()
+    // {
+    //     dialogPanel.SetActive(false);
+    //     isDialogOpen = false;
+    //     //Debug.Log("Dialog hidden" + isDialogOpen);
+    // }
 }
