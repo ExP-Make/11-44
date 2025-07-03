@@ -3,6 +3,12 @@ using UnityEngine;
 
 public class GameSaveManager : PersistentSingleton<GameSaveManager>
 {
+
+    protected override void Awake()
+    {
+        base.Awake();
+        Debug.Log("GameSaveManager Awake called");
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
