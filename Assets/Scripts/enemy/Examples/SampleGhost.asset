@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c87aadf0a6afe45accf8549b11f9cb, type: 3}
+  m_Name: SampleGhost
+  m_EditorClassIdentifier: 
+  enemyName: Basic Enemy
+  isBoss: 0
+  maxHealth: 100
+  moveSpeed: 3
+  aiType: 1
+  detectionRange: 8
+  attackRange: 2
+  patrolDistance: 5
+  alertTime: 3
+  canRetreat: 0
+  retreatHealthThreshold: 0.3
+  movementType: 0
+  canJump: 0
+  jumpForce: 5
+  hoverHeight: 3
+  maxFlyHeight: 8
+  minFlyHeight: 1
+  hoverAmplitude: 0.5
+  hoverFrequency: 2
+  attackPatterns: []
+  specialPassives: []
+  idleSprite: {fileID: 0}
+  movingSprite: {fileID: 0}
+  damageFlashColor: {r: 1, g: 0, b: 0, a: 1}
+  moveSounds: []
+  attackSounds: []
+  deathSound: {fileID: 0}
+  deathEffect: {fileID: 0}
+  spawnEffect: {fileID: 0}
+  dropItems: []
+  experienceValue: 10
+  bossUIPrefab: {fileID: 0}
+  bossMusic: {fileID: 0}

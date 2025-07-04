@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+[RequireComponent(typeof(Rigidbody2D))]
+public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;     // �¿� �̵� �ӵ�
-    public float jumpForce = 12f;    // ���� ��
+    public float moveSpeed = 5f;     //¿ ̵ ӵ
+    public float jumpForce = 12f;    //  
     public LayerMask groundLayer;    // ������ �ν��� ���̾�
 
     private Rigidbody2D rb;
