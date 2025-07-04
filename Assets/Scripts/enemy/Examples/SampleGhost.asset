@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c87aadf0a6afe45accf8549b11f9cb, type: 3}
   m_Name: SampleGhost
   m_EditorClassIdentifier: 
-  enemyName: Basic Enemy
+  enemyName: SampleGhost
   isBoss: 0
   maxHealth: 100
   moveSpeed: 3
   aiType: 1
-  detectionRange: 8
+  detectionRange: 20
   attackRange: 2
   patrolDistance: 5
   alertTime: 3
   canRetreat: 0
   retreatHealthThreshold: 0.3
-  movementType: 0
+  movementType: 1
   canJump: 0
   jumpForce: 5
   hoverHeight: 3
@@ -31,8 +31,10 @@ MonoBehaviour:
   minFlyHeight: 1
   hoverAmplitude: 0.5
   hoverFrequency: 2
-  attackPatterns: []
-  specialPassives: []
+  attackPatterns:
+  - {fileID: 11400000, guid: 6eda780daf1a2d847801a25068a65745, type: 2}
+  specialPassives:
+  - {fileID: 0}
   idleSprite: {fileID: 0}
   movingSprite: {fileID: 0}
   damageFlashColor: {r: 1, g: 0, b: 0, a: 1}
