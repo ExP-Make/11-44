@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
 
-public class InventoryUI : MonoBehaviour
+public class InventoryUI : PersistentSingleton<InventoryUI>
 {
     [SerializeField] GameObject inventoryPanel;
     [SerializeField] Transform itemGridParent;
@@ -21,12 +21,47 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI detailDescription;
 
     private Dictionary<int, GameObject> itemSlots = new Dictionary<int, GameObject>();
+
+    protected override void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // 중복 제거
+            return;
+        }
+        base.Awake();
+        if (inventoryPanel == null)
+        {
+            Debug.LogError("Inventory Panel is not assigned in the InventoryUI script.");
+        }
+        if (itemGridParent == null)
+        {
+            Debug.LogError("Item Grid Parent is not assigned in the InventoryUI script.");
+        }
+        if (playerInventory == null)
+        {
+            playerInventory = PlayerManager.Instance.GetComponent<Inventory>();
+            if (playerInventory == null)
+            {
+                Debug.LogError("Player Inventory is not found on PlayerManager.");
+            }
+        }
+        if (itemDatabase == null)
+        {
+            itemDatabase = Resources.Load<ItemDatabase>("ItemDatabase");
+            if (itemDatabase == null)
+            {
+                Debug.LogError("Item Database is not found in Resources.");
+            }
+        }
+    }
+
     void Update()
     {
         if (!GameManager.Instance.isDialogOpen && Input.GetKeyDown(KeyCode.E))
         {
             bool isActive = inventoryPanel.activeSelf;
-            Debug.Log("Inventory UI Toggle: " + (isActive ? "Closing" : "Opening"));
+            //Debug.Log("Inventory UI Toggle: " + (isActive ? "Closing" : "Opening"));
             inventoryPanel.SetActive(!isActive);
 
             if (!isActive)
@@ -47,7 +82,7 @@ public class InventoryUI : MonoBehaviour
         // 현재 아이템 상황에 맞춰서 업데이트
         foreach (var itemData in itemDatabase.items)
         {
-            Debug.Log("Item ID: " + itemData.id + ", Name: " + itemData.itemName);
+            //Debug.Log("Item ID: " + itemData.id + ", Name: " + itemData.itemName);
             GameObject slot = Instantiate(itemSlotPrefab, itemGridParent);
             Image iconImage = slot.transform.Find("Icon").GetComponent<Image>();
 

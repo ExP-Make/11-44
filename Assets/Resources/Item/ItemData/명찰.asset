@@ -16,8 +16,8 @@ MonoBehaviour:
   itemName: "\uBA85\uCC30"
   description: "\uBA85\uCC30 \uC544\uC774\uD15C \uC124\uBA85"
   icon:
-  - {fileID: 1410978455092575548, guid: c5edf459c3fa870438b65042af4ee8b9, type: 3}
-  - {fileID: 1410978455092575548, guid: c5edf459c3fa870438b65042af4ee8b9, type: 3}
+  - {fileID: 9209945696365938526, guid: bda7eb4f6187df943a8bff526c700ad6, type: 3}
+  - {fileID: 9209945696365938526, guid: bda7eb4f6187df943a8bff526c700ad6, type: 3}
   itemType: 1
   attackPower: 1
   defensePower: 0
