@@ -2,17 +2,32 @@ using UnityEngine;
 
 public class PersistentSingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    public static T Instance { get; private set; }
+    private static T _instance;
+    public static T Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                GameObject obj;
+                obj = GameObject.Find(typeof(T).Name);
+                if (obj == null)
+                {
+                    obj = new GameObject(typeof(T).Name);
+                    _instance = obj.AddComponent<T>();
+                }
+                else
+                {
+                    _instance = obj.GetComponent<T>();
+                }
+            }
 
+            return _instance;
+        }
+    }
+    
     protected virtual void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this as T;
         DontDestroyOnLoad(gameObject);
     }
 }
