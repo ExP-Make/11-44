@@ -3,53 +3,68 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    private CharacterController controller;
-    public float moveSpeed = 5f;     //¿ ? ?
-    public float jumpForce = 12f;    //  
-    public LayerMask groundLayer;    // ?????? ?ν??? ?????
-
-    private Rigidbody2D rb;
-    private bool isGrounded;
+    public float _moveSpeed = 5f;
+    public float _jumpForce = 12f;  
+    private bool _isGround;
+    
+    public LayerMask _groundLayer;
+    
+    // Components
+    private Rigidbody2D _rigidbody;
+ 
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (!GameManager.Instance.isDialogOpen)
+        if (CanMove())
         {
             Move();
             Jump();
-            CheckGround();
         }
+        
+        GroundCheck();
     }
 
+    private bool CanMove()
+    {
+        if (GameManager.Instance.isDialogOpen) return false;
+        return true;
+    }
+    
     private void Move()
     {
         float moveInput = Input.GetAxisRaw("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        _rigidbody.linearVelocity = new Vector2(moveInput * _moveSpeed, _rigidbody.linearVelocity.y);
     }
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && _isGround)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, _jumpForce);
         }
     }
 
-    private void CheckGround()
+    private void GroundCheck()
     {
-        // ??????? ?????? ???
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, groundLayer);
+        RaycastHit2D hit;
+        float distance = 1f;
+        Vector2 dir = Vector2.down;
 
-        if (hit.collider != null)
-            isGrounded = true;
+        hit = Physics2D.Raycast(transform.position, dir, distance, _groundLayer);
+
+        if(hit.collider != null)
+        {
+            _isGround = true;
+        }
         else
-            isGrounded = false;
-
-        Debug.DrawRay(transform.position, Vector2.down * 1.0f, Color.red);
+        {
+            _isGround = false;
+            Debug.Log("Not Ground");
+        }
     }
 }
