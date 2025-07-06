@@ -3,9 +3,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;     //¿ ̵ ӵ
+    private CharacterController controller;
+    public float moveSpeed = 5f;     //¿ ? ?
     public float jumpForce = 12f;    //  
-    public LayerMask groundLayer;    // ������ �ν��� ���̾�
+    public LayerMask groundLayer;    // ?????? ?ν??? ?????
 
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -41,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckGround()
     {
-        // �߹����� ������ ���
+        // ??????? ?????? ???
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f, groundLayer);
 
         if (hit.collider != null)

@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class StartManager : MonoBehaviour
 {
-    public string gameSceneName = "BootScene"; // ÀÌµ¿ÇÒ °ÔÀÓ ¾À ÀÌ¸§
+    public string gameSceneName = "BootScene"; // ì´ë™í•  ê²Œì„ ì”¬ ì´ë¦„
 
     public void OnClickStart()
     {
@@ -14,13 +14,13 @@ public class StartManager : MonoBehaviour
 
     public void OnClickLoad()
     {
-        // TODO : ¶È°°ÀÌ BootSceneÀ¸·Î ÀÌµ¿ÇÏ°í, BootScene¿¡¼­ ¼¼ÀÌºê µ¥ÀÌÅÍ ¿©ºÎ ÆÇº°
+        // TODO : ë˜‘ê°™ì´ BootSceneìœ¼ë¡œ ì´ë™í•˜ê³ , BootSceneì—ì„œ ì„¸ì´ë¸Œ ë°ì´í„° ì—¬ë¶€ íŒë³„
         GameManager.Instance.ignoreSaveData = false;
         SceneManager.LoadScene(gameSceneName);
     }
     public void OnClickExit()
     {
-        Debug.Log("°ÔÀÓ Á¾·á!");
-        Application.Quit(); // ºôµåµÈ »óÅÂ¿¡¼­¸¸ ÀÛµ¿
+        Debug.Log("ê²Œì„ ì¢…ë£Œ!");
+        Application.Quit(); // ë¹Œë“œëœ ìƒíƒœì—ì„œë§Œ ì‘ë™
     }
 }
