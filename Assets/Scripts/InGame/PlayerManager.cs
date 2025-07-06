@@ -52,10 +52,12 @@ public class PlayerManager : PersistentSingleton<PlayerManager>
         {
             if (item.itemData == null) continue; // null 체크
             if (cachedSaveData.obtainedItemIds.Contains(item.itemData.id))
-                {
-                    Destroy(item.gameObject); // 이미 획득한 아이템 제거
-                    Debug.Log($"획득한 아이템 제거: {item.itemData.itemName} (ID: {item.itemData.id})");
-                }
+            {
+                Destroy(item.gameObject); // 이미 획득한 아이템 제거
+                Debug.Log($"획득한 아이템 제거: {item.itemData.itemName} (ID: {item.itemData.id})");
             }
+        }
+
+        gameObject.transform.position = new Vector3(-18, -3, 0f); // 층 이동시 캐릭터 위치 초기화 (임시)
     }
 }
