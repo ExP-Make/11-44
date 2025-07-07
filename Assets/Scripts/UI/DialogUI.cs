@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 // 현재 적용된 오브젝트 없음
-public class DialogUI : PersistentSingleton<DialogUI>
+public class DialogUI : MonoBehaviour
 {
     public GameObject dialogPanel;
     public TextMeshProUGUI dialogText;

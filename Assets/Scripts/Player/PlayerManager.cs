@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
-public class PlayerManager : PersistentSingleton<PlayerManager>
+public class PlayerManager : MonoBehaviour
 {
     [Header("Player Stats")]
     [SerializeField] private float maxHealth = 100f;
@@ -15,9 +15,8 @@ public class PlayerManager : PersistentSingleton<PlayerManager>
     // 플레이어 사망 시 호출되는 델리게이트
     public Action onPlayerDead;
 
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
 
         // 체력 초기화
         currentHealth = maxHealth;

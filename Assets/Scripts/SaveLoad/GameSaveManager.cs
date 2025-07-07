@@ -26,14 +26,14 @@ public class GameSaveManager : PersistentSingleton<GameSaveManager>
         SaveData data = new SaveData();
 
         // 위치
-        Vector3 pos = PlayerManager.Instance.transform.position;
+        Vector3 pos = Player.Instance.transform.position;
         data.playerPosX = pos.x;
         data.playerPosY = pos.y;
 
         // 씬 이름
         data.currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         // 아이템
-        Inventory inventory = PlayerManager.Instance.GetComponent<Inventory>();
+        Inventory inventory = Player.Instance.inventory;
         data.obtainedItemIds = new List<int>(inventory.obtainedItemIds);
         if (inventory != null)
         {

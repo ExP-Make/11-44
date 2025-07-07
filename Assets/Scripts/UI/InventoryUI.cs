@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
 
-public class InventoryUI : PersistentSingleton<InventoryUI>
+public class InventoryUI : MonoBehaviour
 {
     [SerializeField] GameObject inventoryPanel;
     [SerializeField] Transform itemGridParent;
@@ -22,14 +22,8 @@ public class InventoryUI : PersistentSingleton<InventoryUI>
 
     private Dictionary<int, GameObject> itemSlots = new Dictionary<int, GameObject>();
 
-    protected override void Awake()
+    void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject); // 중복 제거
-            return;
-        }
-        base.Awake();
         if (inventoryPanel == null)
         {
             Debug.LogError("Inventory Panel is not assigned in the InventoryUI script.");
@@ -40,15 +34,15 @@ public class InventoryUI : PersistentSingleton<InventoryUI>
         }
         if (playerInventory == null)
         {
-            playerInventory = PlayerManager.Instance.GetComponent<Inventory>();
+            playerInventory = Player.Instance.inventory;
             if (playerInventory == null)
             {
-                Debug.LogError("Player Inventory is not found on PlayerManager.");
+                Debug.LogError("Player Inventory is not found on Player.");
             }
         }
         if (itemDatabase == null)
         {
-            itemDatabase = Resources.Load<ItemDatabase>("ItemDatabase");
+            itemDatabase = Resources.Load<ItemDatabase>("Item/ItemData/ItemDatabase");
             if (itemDatabase == null)
             {
                 Debug.LogError("Item Database is not found in Resources.");
