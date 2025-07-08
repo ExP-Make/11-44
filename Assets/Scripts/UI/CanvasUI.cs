@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class CanvasUI : PersistentSingleton<CanvasUI>
 {
-    public DialogUI dialogUI;
+    public DialogManager dialogManager;
     public InventoryUI inventoryUI;
     protected override void Awake()
     {
         base.Awake();
 
-        if (dialogUI == null)
+        if (dialogManager == null)
         {
-            dialogUI = GetComponentInChildren<DialogUI>();
-            if (dialogUI == null)
+            dialogManager = GetComponentInChildren<DialogManager>();
+            if (dialogManager == null)
             {
-                Debug.LogError("Dialog UI is not assigned in the CanvasUI script.");
+                Debug.LogError("Dialog Manager is not assigned in the CanvasUI script.");
             }
         }
 

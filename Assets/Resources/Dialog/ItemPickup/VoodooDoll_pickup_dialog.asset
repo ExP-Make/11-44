@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40163ad114d872d4f8075357b45fa05a, type: 3}
+  m_Name: VoodooDoll_pickup_dialog
+  m_EditorClassIdentifier: 
+  lines:
+  - speakerName: 
+    portrait: {fileID: 7014601713473156125, guid: 3a7959e7a03346b4a89f3edb82869d38, type: 3}
+    message: "\uBC00\uC9DA \uC778\uD615\uC774\uB2E4. \uBCF4\uD1B5 \uC800\uC8FC\uC5D0
+      \uC4F0\uC774\uB294 \uAC83 \uC544\uB2C8\uB358\uAC00...?"
