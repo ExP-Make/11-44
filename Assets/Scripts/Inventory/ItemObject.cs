@@ -35,17 +35,10 @@ public class ItemObject : MonoBehaviour
         if (!isPlayerinRange || itemData == null || currentInventory == null) return;
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (!GameManager.Instance.isDialogOpen)
-            {
-                CanvasUI.Instance.dialogUI.ShowDialog($"{itemData.itemName}을 얻었다.");
-            }
-            else if (GameManager.Instance.isDialogOpen)
-            {
-                currentInventory.AddItem(itemData, quantity); // 아이템 획득 처리
-                currentInventory.RegisterObtainedItem(itemData.id); // 아이템 획득 현황 등록
-                CanvasUI.Instance.dialogUI.HideDialog();
-                Destroy(gameObject);
-            }
+            DialogManager.Instance.StartDialog(itemData.dialogSequence);
+            currentInventory.AddItem(itemData, quantity); // 아이템 획득 처리
+            currentInventory.RegisterObtainedItem(itemData.id); // 아이템 획득 현황 등록
+            Destroy(gameObject);
         }
     }
 

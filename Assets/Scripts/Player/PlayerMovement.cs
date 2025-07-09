@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CanMove()
     {
-        if (GameManager.Instance.isDialogOpen) return false;
+        if (DialogManager.Instance.IsDialogOpen()) return false;
         return true;
     }
     
@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             _isGround = false;
-            Debug.Log("Not Ground");
+            //Debug.Log("Not Ground");
         }
     }
 }

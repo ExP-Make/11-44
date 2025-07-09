@@ -18,6 +18,7 @@ MonoBehaviour:
   icon:
   - {fileID: 4228585024402561301, guid: 70ac2fef1512f8a418aa44bf1f3b8b19, type: 3}
   - {fileID: 4228585024402561301, guid: 70ac2fef1512f8a418aa44bf1f3b8b19, type: 3}
+  dialogSequence: {fileID: 11400000, guid: 0dd23b868e6e7c946af8667b52be4617, type: 2}
   itemType: 1
   attackPower: 1
   defensePower: 0

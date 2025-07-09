@@ -12,11 +12,12 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] ItemDatabase itemDatabase;
 
     // itemslot
+    [SerializeField] Sprite slotCell_disabled;
     [SerializeField] GameObject itemSlotPrefab;
     [SerializeField] Material silhouetteMaterial; // 실루엣 머티리얼
 
     // DetailPanel
-    [SerializeField] Image detailIcon;
+    //[SerializeField] Image detailIcon;
     [SerializeField] TextMeshProUGUI detailName;
     [SerializeField] TextMeshProUGUI detailDescription;
 
@@ -52,7 +53,7 @@ public class InventoryUI : MonoBehaviour
 
     void Update()
     {
-        if (!GameManager.Instance.isDialogOpen && Input.GetKeyDown(KeyCode.E))
+        if (!DialogManager.Instance.IsDialogOpen() && Input.GetKeyDown(KeyCode.E))
         {
             bool isActive = inventoryPanel.activeSelf;
             //Debug.Log("Inventory UI Toggle: " + (isActive ? "Closing" : "Opening"));
@@ -79,12 +80,15 @@ public class InventoryUI : MonoBehaviour
             //Debug.Log("Item ID: " + itemData.id + ", Name: " + itemData.itemName);
             GameObject slot = Instantiate(itemSlotPrefab, itemGridParent);
             Image iconImage = slot.transform.Find("Icon").GetComponent<Image>();
+            Image cellImage = slot.transform.Find("Cell").GetComponent<Image>();
 
             var invItem = playerInventory.inventoryItems.Find(i => i.itemData.id == itemData.id);
             iconImage.sprite = itemData.icon[0];
-            if (invItem == null)
+            if (invItem == null) // 미획득 아이템
             {
-                iconImage.material = silhouetteMaterial;
+                cellImage.sprite = slotCell_disabled;
+                //iconImage.material = silhouetteMaterial;
+                iconImage.color = Color.gray;
             }
 
             Button button = slot.GetComponent<Button>();
@@ -94,17 +98,17 @@ public class InventoryUI : MonoBehaviour
 
     void ResetDetailPanel()
     {
-        detailIcon.sprite = null;
-        detailIcon.material = null;
-        ChangeAlpha(detailIcon, 0f);
+        //detailIcon.sprite = null;
+        //detailIcon.material = null;
+        //ChangeAlpha(detailIcon, 0f);
         detailName.text = "";
         detailDescription.text = "";
     }
     void UpdateDetailPanel(ItemData itemData, bool isObtained)
     {
-        detailIcon.sprite = itemData.icon[0];
-        detailIcon.material = isObtained ? null : silhouetteMaterial;
-        ChangeAlpha(detailIcon, 1f);
+        //detailIcon.sprite = itemData.icon[0];
+        //detailIcon.material = isObtained ? null : silhouetteMaterial;
+        //ChangeAlpha(detailIcon, 1f);
         detailName.text = isObtained ? itemData.itemName : "???";
         detailDescription.text = isObtained ? itemData.description : "???";
     }

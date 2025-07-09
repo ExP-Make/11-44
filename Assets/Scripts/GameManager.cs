@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class GameManager : PersistentSingleton<GameManager>
 {
     public GameObject scanObject;
-    public bool isDialogOpen = false;
+    //public bool isDialogOpen = false;
     public bool ignoreSaveData = false;
 
     //Moved to DialogUI.cs

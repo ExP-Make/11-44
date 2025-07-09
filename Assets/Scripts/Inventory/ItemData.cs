@@ -10,6 +10,7 @@ public class ItemData : ScriptableObject
     public string itemName;
     [TextArea] public string description;
     public Sprite[] icon;
+    public DialogSequence dialogSequence;
     public ItemType itemType;
 
     // Equipment
