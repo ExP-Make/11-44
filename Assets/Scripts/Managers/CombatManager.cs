@@ -7,13 +7,6 @@ public class CombatManager : PersistentSingleton<CombatManager>
 {
     public event Action OnFloatStart;
 
-
-    private void Start()
-    {
-        OnFloatStart?.Invoke();
-        Debug.Log("KK");
-    }
-
     // 특정 조건에 의해 실행되는 StartCombat
     public void StartCombat()
     {

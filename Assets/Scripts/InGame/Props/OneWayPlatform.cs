@@ -16,6 +16,7 @@ public class OneWayPlatform : MonoBehaviour
     {
         _collider.usedByEffector = true;
         _platformEffector.useOneWay = true;
+        _platformEffector.surfaceArc = 90f;
     }
 
     void Update()
