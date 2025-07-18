@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class DialogManager : MonoBehaviour
 {
     public static DialogManager Instance { get; private set; }
-    public GameObject dialogUI;
-    public TextMeshProUGUI dialogText;
+    public Animator dialogAnim;
+    public TypeEffect dialogText;
     public TextMeshProUGUI speakerNameText;
     public Image portraitImage;
 
@@ -26,9 +26,9 @@ public class DialogManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (dialogUI == null)
+        if (dialogAnim == null)
         {
-            Debug.LogError("Dialog UI is not assigned in the DialogManager script.");
+            Debug.LogError("Dialog Animator is not assigned in the DialogManager script.");
         }
     }
     
@@ -48,7 +48,7 @@ public class DialogManager : MonoBehaviour
             dialogQueue.Enqueue(line);
         }
 
-        dialogUI.SetActive(true);
+        dialogAnim.SetBool("isShow", true);
         isDialogPlaying = true;
         Debug.Log("Dialog started with " + dialogQueue.Count + " lines.");
         ShowNextLine();
@@ -64,7 +64,7 @@ public class DialogManager : MonoBehaviour
         Debug.Log("Showing next dialog line. Lines left: " + dialogQueue.Count);
         DialogLine line = dialogQueue.Dequeue();
 
-        dialogText.text = line.message;
+        dialogText.SetMessage(line.message);
         speakerNameText.text = line.speakerName;
         speakerNameText.gameObject.SetActive(!string.IsNullOrEmpty(line.speakerName));
 
@@ -82,7 +82,7 @@ public class DialogManager : MonoBehaviour
     private void EndDialog()
     {
         Debug.Log("Dialog ended.");
-        dialogUI.SetActive(false);
+        dialogAnim.SetBool("isShow", false);
         isDialogPlaying = false;
     }
 

@@ -399,6 +399,7 @@ GameObject:
   - component: {fileID: 8830725866157859330}
   - component: {fileID: 7181634260589150835}
   - component: {fileID: 8322021146888146747}
+  - component: {fileID: 8672085290637232148}
   m_Layer: 5
   m_Name: Script
   m_TagString: Untagged
@@ -528,6 +529,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8672085290637232148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914473723852582148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b9bb49e0c4bfd449d7537fbf5fd43d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typingDelay: 0.05
 --- !u!1 &3014698379153575415
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,13 +553,14 @@ GameObject:
   - component: {fileID: 7182875165522451411}
   - component: {fileID: 710462929517194300}
   - component: {fileID: 4421235589993535587}
+  - component: {fileID: 6605132536467431405}
   m_Layer: 5
   m_Name: Dialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7182875165522451411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -565,7 +580,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -500}
   m_SizeDelta: {x: 0, y: 330}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &710462929517194300
@@ -606,6 +621,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &6605132536467431405
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3014698379153575415}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3a2abad817e12334d9dcecaedef620ef, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4268238118356982519
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,8 +946,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7dcd43b01909c4d80cb79ebfc17807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogUI: {fileID: 3014698379153575415}
-  dialogText: {fileID: 8322021146888146747}
+  dialogAnim: {fileID: 6605132536467431405}
+  dialogText: {fileID: 8672085290637232148}
   speakerNameText: {fileID: 3705589220940093972}
   portraitImage: {fileID: 744837354953510334}
 --- !u!1 &5798615418773444018
