@@ -24,7 +24,7 @@ public class NPCController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.F))
+        if (isPlayerInRange && InputManager.Instance.GetInteractButtonDown())
         {
             if (!DialogManager.Instance.IsDialogOpen())
             {

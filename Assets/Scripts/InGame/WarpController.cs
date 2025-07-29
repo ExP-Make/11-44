@@ -31,7 +31,7 @@ public class WarpController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.F))
+        if (isPlayerInRange && InputManager.Instance.GetInteractButtonDown())
         {
             SceneManager.LoadScene(targetSceneName);
         }
