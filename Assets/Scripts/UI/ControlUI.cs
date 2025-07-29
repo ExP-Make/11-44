@@ -43,7 +43,7 @@ public class ControlUI : MonoBehaviour
 
     private void Start()
     {
-        inventoryUI = FindObjectOfType<InventoryUI>();
+        inventoryUI = FindFirstObjectByType<InventoryUI>();
         if (inventoryUI == null)
         {
             Debug.LogError("InventoryUI not found in the scene!");
@@ -82,6 +82,16 @@ public class ControlUI : MonoBehaviour
             isRightPressed = false;
             if (rightButtonImage.sprite != rightButtonNormal)
                 rightButtonImage.sprite = rightButtonNormal;
+        }
+        if (!interactButton.gameObject.activeSelf)
+        {
+            if (interactButtonImage != null && interactButtonImage.sprite != interactButtonNormal)
+                interactButtonImage.sprite = interactButtonNormal;
+        }
+        if (!itemButton.gameObject.activeSelf)
+        {
+            if (itemButtonImage != null && itemButtonImage.sprite != itemButtonNormal)
+                itemButtonImage.sprite = itemButtonNormal;
         }
 
         // 버튼이 눌리고 있는 상태에 따라 매 프레임 입력을 전달합니다.
