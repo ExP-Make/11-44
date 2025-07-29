@@ -33,7 +33,7 @@ public class ItemObject : MonoBehaviour
     void Update()
     {
         if (!isPlayerinRange || itemData == null || currentInventory == null) return;
-        if (Input.GetKeyDown(KeyCode.F))
+        if (InputManager.Instance.GetInteractButtonDown())
         {
             DialogManager.Instance.StartDialog(itemData.dialogSequence);
             currentInventory.AddItem(itemData, quantity); // 아이템 획득 처리

@@ -26,23 +26,26 @@ public class PlayerController : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
     }
-    
+
     void Update()
     {
+        float horizontal = InputManager.Instance.Horizontal;
         // 이동방향 결정 (Horizontal)
-        _rigidbody.linearVelocity = new Vector2(Input.GetAxisRaw("Horizontal") * MoveSpeed, _rigidbody.linearVelocity.y);
-        
+        _rigidbody.linearVelocity = new Vector2(horizontal * MoveSpeed, _rigidbody.linearVelocity.y);
+
         GroundCheck();
-        
+
         UpdateJumpBuffer();
-        
+
         UpdateCoyoteTime();
-        
+
         UpdateJump();
 
-        FlipPlayer();
-        
+        FlipPlayer(horizontal);
+
         UpdateAnimator();
+
+        
     }
 
     private void GroundCheck()
@@ -55,7 +58,7 @@ public class PlayerController : MonoBehaviour
     private void UpdateJumpBuffer()
     {
         // 점프 버퍼
-        if (Input.GetButtonDown("Jump"))
+        if (InputManager.Instance.jumpPressed)
         {
             _jumpBufferCounter = JumpBufferLength;
         }
@@ -88,22 +91,22 @@ public class PlayerController : MonoBehaviour
         }
 
         // Jump키에서 손을 떼면 고도 상승을 중지한다
-        if (Input.GetButtonUp("Jump") && _rigidbody.linearVelocity.y > 0)
+        if (InputManager.Instance.jumpReleased && _rigidbody.linearVelocity.y > 0)
         {
             _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, _rigidbody.linearVelocity.y * .5f);
         }
     }
 
-    private void FlipPlayer()
+    private void FlipPlayer(float horizontal)
     {
         if (_spriteRenderer)
         {
             // 이동 방향에 따라 flip
-            if (Input.GetAxisRaw("Horizontal") > 0)
+            if (horizontal > 0)
             {
                 _spriteRenderer.flipX = true;
             }
-            else if(Input.GetAxisRaw("Horizontal") < 0)
+            else if(horizontal < 0)
             {
                 _spriteRenderer.flipX = false;
             }

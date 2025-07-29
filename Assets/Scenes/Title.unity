@@ -396,7 +396,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scanObject: {fileID: 0}
-  isDialogOpen: 0
   ignoreSaveData: 0
 --- !u!1 &942222824
 GameObject:

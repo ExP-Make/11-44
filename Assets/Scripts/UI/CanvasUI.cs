@@ -4,6 +4,7 @@ public class CanvasUI : PersistentSingleton<CanvasUI>
 {
     public DialogManager dialogManager;
     public InventoryUI inventoryUI;
+    public ControlUI controlUI;
     protected override void Awake()
     {
         base.Awake();
@@ -23,6 +24,15 @@ public class CanvasUI : PersistentSingleton<CanvasUI>
             if (inventoryUI == null)
             {
                 Debug.LogError("Inventory UI is not assigned in the CanvasUI script.");
+            }
+        }
+
+        if (controlUI == null)
+        {
+            controlUI = GetComponentInChildren<ControlUI>();
+            if (controlUI == null)
+            {
+                Debug.LogError("Control UI is not assigned in the CanvasUI script.");
             }
         }
     }

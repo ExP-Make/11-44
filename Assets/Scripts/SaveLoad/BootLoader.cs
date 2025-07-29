@@ -10,9 +10,10 @@ public class BootLoader : MonoBehaviour
     void Start()
     {
         //Instantiate(Resources.Load("Prefabs/GameManager"));
-        Instantiate(Resources.Load("Prefab/Player"));
+        Instantiate(Resources.Load("Prefab/DPlayer"));
         Instantiate(Resources.Load("Prefab/SaveManager"));
         Instantiate(Resources.Load("Prefab/Canvas"));
+        Instantiate(Resources.Load("Prefab/InputManager"));
 
         StartCoroutine(LoadGameScene());
     }

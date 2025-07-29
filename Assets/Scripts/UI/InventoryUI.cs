@@ -53,7 +53,7 @@ public class InventoryUI : MonoBehaviour
 
     void Update()
     {
-        if (!DialogManager.Instance.IsDialogOpen() && Input.GetKeyDown(KeyCode.E))
+        if (!DialogManager.Instance.IsDialogOpen() && (Input.GetKeyDown(KeyCode.E) || InputManager.Instance.GetItemButtonDown()))
         {
             bool isActive = inventoryPanel.activeSelf;
             //Debug.Log("Inventory UI Toggle: " + (isActive ? "Closing" : "Opening"));
@@ -118,5 +118,10 @@ public class InventoryUI : MonoBehaviour
         Color tempColor = image.color;
         tempColor.a = alpha;
         image.color = tempColor;
+    }
+
+    public bool IsPanelActive()
+    {
+        return inventoryPanel.activeSelf;
     }
 }

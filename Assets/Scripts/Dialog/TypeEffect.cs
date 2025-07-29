@@ -4,7 +4,7 @@ using UnityEngine;
 public class TypeEffect : MonoBehaviour
 {
     string fullText;
-    public float typingDelay = 0.05f;
+    public float typingDelay = 0.1f;
     TextMeshProUGUI msgText;
     int index;
     private void Awake()
@@ -22,7 +22,7 @@ public class TypeEffect : MonoBehaviour
     {
         msgText.text = "";
         index = 0;
-        InvokeRepeating(nameof(EffectUpdate), 0.05f, typingDelay);
+        InvokeRepeating(nameof(EffectUpdate), 0.1f, typingDelay);
     }
 
     void EffectUpdate()
