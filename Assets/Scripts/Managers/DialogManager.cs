@@ -36,7 +36,14 @@ public class DialogManager : MonoBehaviour
     {
         if (isDialogPlaying && Input.GetMouseButtonDown(0))
         {
-            ShowNextLine();
+            if (dialogText.isTypingComplete)
+            {
+                ShowNextLine();
+            }
+            else
+            {
+                dialogText.CompleteTyping();
+            }
         }
     }
 
