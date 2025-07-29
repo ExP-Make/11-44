@@ -484,7 +484,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -957,6 +957,7 @@ GameObject:
   - component: {fileID: 7795581070161934556}
   - component: {fileID: 6807343560844405964}
   - component: {fileID: 1601277065347955339}
+  - component: {fileID: 1818367801544930837}
   m_Layer: 5
   m_Name: Interact
   m_TagString: Untagged
@@ -1040,7 +1041,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1065,6 +1066,51 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1818367801544930837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4773238341785574348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2808114850352210829}
+          m_TargetAssemblyTypeName: ControlUI, Assembly-CSharp
+          m_MethodName: OnInteractButtonDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2808114850352210829}
+          m_TargetAssemblyTypeName: ControlUI, Assembly-CSharp
+          m_MethodName: OnInteractButtonUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5366001221620346504
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,7 +1516,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1596,6 +1642,14 @@ MonoBehaviour:
   rightButton: {fileID: 5924082512037725540}
   interactButton: {fileID: 1601277065347955339}
   itemButton: {fileID: 7536898232222183745}
+  leftButtonNormal: {fileID: -1234181547582636774, guid: 139cb5efc2d99ba42ab878054dd97c1e, type: 3}
+  leftButtonPressed: {fileID: 4109163717889656837, guid: 5e97c8541c9b054499aeafbf0e093b21, type: 3}
+  rightButtonNormal: {fileID: 1527736799942789077, guid: 3ca4cdc698348a546b707bbe1883ae1e, type: 3}
+  rightButtonPressed: {fileID: -1388861658916334608, guid: 01c6567767649fc4d8a680d549ac7eb0, type: 3}
+  interactButtonNormal: {fileID: 5060716624396548009, guid: 1debbd378aee3fe4fac2e45a004011bb, type: 3}
+  interactButtonPressed: {fileID: -7110008315745104052, guid: f7c864d98de1e074e8c7a5835f3fbd55, type: 3}
+  itemButtonNormal: {fileID: 6493752199245855503, guid: dcfdeb9bd7c5fa7438e3e8137a0a398b, type: 3}
+  itemButtonPressed: {fileID: -5183218141750457732, guid: 33e6f1fd80c74244495ac4983e77582d, type: 3}
 --- !u!1 &7915406896206211137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,6 +1720,7 @@ GameObject:
   - component: {fileID: 9183925228880276537}
   - component: {fileID: 6216874243237771516}
   - component: {fileID: 7536898232222183745}
+  - component: {fileID: 5108505758284708724}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -1749,7 +1804,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1774,6 +1829,51 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5108505758284708724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8381207445073499010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2808114850352210829}
+          m_TargetAssemblyTypeName: ControlUI, Assembly-CSharp
+          m_MethodName: OnItemButtonDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2808114850352210829}
+          m_TargetAssemblyTypeName: ControlUI, Assembly-CSharp
+          m_MethodName: OnItemButtonUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8397852518175543808
 GameObject:
   m_ObjectHideFlags: 0
