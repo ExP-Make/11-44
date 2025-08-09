@@ -2,26 +2,15 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class LoadButtonController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class LoadButtonController : MonoBehaviour
 {
     [SerializeField] Image buttonImg;
-    [Tooltip("0: Save file exists, 1: No save file exists, 2: Button pressed")]
+    [Tooltip("0: Save file exists, 1: No save file exists")]
     public Sprite[] buttonSprites;
     private Button button;
     void Start()
     {
         button = GetComponent<Button>();
-        SetButton();
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if (button.interactable)
-            buttonImg.sprite = buttonSprites[2];
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
         SetButton();
     }
 

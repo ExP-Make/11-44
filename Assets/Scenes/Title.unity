@@ -1346,7 +1346,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 555406822}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1272473724}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: CloseUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &555406822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2092,7 +2104,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2103,7 +2115,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 457133179013368494, guid: dd9068e27c7487a438372c9ac3bef3f6, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -2116,7 +2128,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 673721565}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1426126056}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: CloseUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &673721565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2187,7 +2211,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 592748890}
-  - {fileID: 1932922358}
   - {fileID: 1771862295}
   - {fileID: 2073463503}
   - {fileID: 11401782}
@@ -3541,7 +3564,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3552,7 +3575,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: -5713230370262188301, guid: e0b113ecf2918bc47b0eed0057e804cf, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -3566,9 +3589,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1044177833}
-        m_TargetAssemblyTypeName: StartManager, Assembly-CSharp
-        m_MethodName: OnClickLoad
+      - m_Target: {fileID: 1272473724}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: OpenUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3616,29 +3639,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1272473718}
   m_CullTransparentMesh: 1
---- !u!95 &1272473723
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272473718}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aec6b626595acf442b78d69ba6d8806d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1272473724
+--- !u!114 &1272473723
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3654,7 +3655,20 @@ MonoBehaviour:
   buttonSprites:
   - {fileID: -5426773300122541282, guid: 3ec6da0a62ee3f146b293d09cfcb0133, type: 3}
   - {fileID: 3826554340875079211, guid: b8457c3743698ac499ffe3eb210d2ea9, type: 3}
-  - {fileID: -5713230370262188301, guid: e0b113ecf2918bc47b0eed0057e804cf, type: 3}
+--- !u!114 &1272473724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272473718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed603c68c4deac42bb9be805825c6da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIPanel: {fileID: 2073463502}
+  TitleUI: {fileID: 1771862294}
 --- !u!1 &1296718676
 GameObject:
   m_ObjectHideFlags: 0
@@ -3787,6 +3801,7 @@ GameObject:
   - component: {fileID: 1426126055}
   - component: {fileID: 1426126054}
   - component: {fileID: 1426126053}
+  - component: {fileID: 1426126056}
   m_Layer: 0
   m_Name: Settings
   m_TagString: Untagged
@@ -3856,7 +3871,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1426126054}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1426126056}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: OpenUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1426126054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3895,6 +3922,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426126051}
   m_CullTransparentMesh: 1
+--- !u!114 &1426126056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426126051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed603c68c4deac42bb9be805825c6da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIPanel: {fileID: 11401781}
+  TitleUI: {fileID: 1771862294}
 --- !u!1 &1457279508
 GameObject:
   m_ObjectHideFlags: 0
@@ -4969,6 +5010,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1932922358}
   - {fileID: 1880159828}
   - {fileID: 1272473719}
   - {fileID: 1426126052}
@@ -5158,7 +5200,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5169,7 +5211,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: -6016838973208176643, guid: 57522f9b22c10344396e0eef279a8310, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -5285,11 +5327,11 @@ RectTransform:
   m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 734525086}
+  m_Father: {fileID: 1771862295}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50.000004}
+  m_AnchoredPosition: {x: -26.199984, y: -86.13391}
   m_SizeDelta: {x: 163.1007, y: 95.90781}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1932922359
@@ -5387,7 +5429,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAE40\uD604\uC6B0"
+  m_text: "\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 340308877a9d1f643a4e61790b07a2cb, type: 2}
   m_sharedMaterial: {fileID: 7376222699053180629, guid: 340308877a9d1f643a4e61790b07a2cb, type: 2}
