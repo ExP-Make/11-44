@@ -53,15 +53,27 @@ public class InventoryUI : MonoBehaviour
 
     void Update()
     {
-        if (!DialogManager.Instance.IsDialogOpen() && (Input.GetKeyDown(KeyCode.E) || InputManager.Instance.GetItemButtonDown()))
+        // 인벤토리 열기 키 (E 또는 지정된 버튼)
+        if (!DialogManager.Instance.IsDialogOpen() && !inventoryPanel.activeSelf && (Input.GetKeyDown(KeyCode.E) || InputManager.Instance.GetItemButtonDown()))
         {
-            bool isActive = inventoryPanel.activeSelf;
-            //Debug.Log("Inventory UI Toggle: " + (isActive ? "Closing" : "Opening"));
-            inventoryPanel.SetActive(!isActive);
-
-            if (!isActive)
-                RefreshUI();
+            OpenPanel();
         }
+        // 인벤토리 닫기 키 (ESC)
+        else if (inventoryPanel.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            ClosePanel();
+        }
+    }
+
+    public void OpenPanel()
+    {
+        inventoryPanel.SetActive(true);
+        RefreshUI();
+    }
+
+    public void ClosePanel()
+    {
+        inventoryPanel.SetActive(false);
     }
 
     /// <summary>

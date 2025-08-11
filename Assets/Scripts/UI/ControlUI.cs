@@ -30,14 +30,12 @@ public class ControlUI : MonoBehaviour
 
     void Update()
     {
-        bool isInventoryOpen = (inventoryUI != null && inventoryUI.IsPanelActive());
+        bool isInventoryOpen = inventoryUI != null && inventoryUI.IsPanelActive();
         bool isDialogueOpen = DialogManager.Instance.IsDialogOpen();
         bool isUIOpen = isDialogueOpen || isInventoryOpen;
 
-        // 아이템 버튼은 대화창이 열려있을 때만 비활성화
-        itemButton.gameObject.SetActive(!isDialogueOpen);
-
-        // 나머지 버튼들은 UI가 열려있으면 비활성화
+        // UI가 열려있으면 버튼 비활성화
+        itemButton.gameObject.SetActive(!isUIOpen);
         leftButton.gameObject.SetActive(!isUIOpen);
         rightButton.gameObject.SetActive(!isUIOpen);
         interactButton.gameObject.SetActive(!isUIOpen);
