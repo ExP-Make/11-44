@@ -8,10 +8,12 @@ public class ControlUI : MonoBehaviour
     public Button rightButton;
     public Button interactButton;
     public Button itemButton;
+    public Button pauseButton;
 
     private bool isLeftPressed = false;
     private bool isRightPressed = false;
     private InventoryUI inventoryUI;
+    private PauseUI pauseUI;
 
     private void Awake()
     {
@@ -25,6 +27,17 @@ public class ControlUI : MonoBehaviour
         if (inventoryUI == null)
         {
             Debug.LogError("InventoryUI not found in the scene!");
+        }
+        
+        pauseUI = FindFirstObjectByType<PauseUI>();
+        if (pauseUI == null)
+        {
+            Debug.LogError("PauseUI not found in the scene!");
+        }
+        else
+        {
+            pauseButton.onClick.AddListener(pauseUI.PauseGame);
+            pauseUI.gameObject.SetActive(false);
         }
     }
 
